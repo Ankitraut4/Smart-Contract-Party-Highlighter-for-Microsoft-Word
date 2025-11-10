@@ -1,0 +1,40 @@
+/* Minimal styling for the Contract Party Highlighter */
+:root { --blue:#0078d4; --border:#e1dfdd; --muted:#605e5c; --bg:#ffffff; }
+
+html,body{height:100%;margin:0;font-family:"Segoe UI",Arial,sans-serif;color:#333;background:var(--bg);}
+.container{padding:16px;}
+h2{margin:0 0 12px;color:var(--blue);font-size:1.25rem;}
+h3{margin:0 0 8px;font-size:1rem;}
+.card{border:1px solid var(--border);border-radius:8px;padding:12px;margin:10px 0;background:#fff;}
+.card.small{padding:10px;}
+.row{display:flex;align-items:center;gap:8px;}
+.row.between{justify-content:space-between;}
+.party-list{display:grid;grid-template-columns:1fr;gap:8px;margin:8px 0 6px;}
+.party-item{display:flex;align-items:center;gap:8px;}
+.add-party{margin-top:6px;}
+#partyManual{flex:1;padding:6px 8px;border:1px solid var(--border);border-radius:6px;}
+button{padding:6px 12px;border:1px solid var(--border);border-radius:6px;background:#f3f2f1;cursor:pointer;font-size:.9rem;}
+button:hover{background:#e1dfdd;}
+button.primary{background:var(--blue);color:#fff;border-color:var(--blue);}
+button.primary:hover{filter:brightness(.95);}
+button.link{background:transparent;border:none;color:var(--blue);padding:0;text-decoration:underline;}
+button.link:hover{text-decoration:none;}
+.controls{display:flex;gap:8px;margin-bottom:6px;}
+.status{font-size:.85rem;color:var(--muted);}
+.hint{font-size:.8rem;color:var(--muted);line-height:1.3;}
+.bullets{padding-left:18px;margin:0;}
+.bullets li{margin-bottom:4px;}
+.busy{display:flex;align-items:center;gap:10px;margin:6px 0 10px;font-size:.9rem;color:var(--muted);}
+.spinner{width:16px;height:16px;border:2px solid #ddd;border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+input[type="text"]{font-family:inherit;font-size:.9rem;}
+input[type="radio"]{margin:0;}
+label{cursor:pointer;font-size:.9rem;line-height:1.2;}
+@media (max-width:300px){.container{padding:12px}.controls{flex-direction:column}.row.add-party{flex-direction:column;align-items:stretch}#partyManual{margin-bottom:8px}}
+button:focus{outline:2px solid var(--blue);outline-offset:2px;}
+input:focus{outline:2px solid var(--blue);outline-offset:1px;}
+button:disabled{background:#f3f2f1;color:var(--muted);cursor:not-allowed;opacity:.6;}
+button.primary:disabled{background:var(--muted);border-color:var(--muted);}
+button.loading{position:relative;color:transparent;}
+button.loading::after{content:'';position:absolute;width:16px;height:16px;top:50%;left:50%;margin-left:-8px;margin-top:-8px;border:2px solid transparent;border-top-color:currentColor;border-radius:50%;animation:spin .8s linear infinite;}
+button.primary.loading::after{border-top-color:white;}

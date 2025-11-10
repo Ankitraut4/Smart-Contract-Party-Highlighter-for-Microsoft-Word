@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contract Party Highlighter</title>
+
+    <link rel="stylesheet" href="taskpane.css" />
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  </head>
+
+  <body class="ms-Fabric">
+    <main class="container">
+      <h2>Contract Party Highlighter</h2>
+
+      <div id="busy" class="busy" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <span id="busyText">Analyzing...</span>
+      </div>
+
+      <section class="card">
+        <div class="row between">
+          <h3>Parties</h3>
+          <button id="btnRedetect" class="link" type="button">Redetect</button>
+        </div>
+
+        <div id="parties" class="party-list"></div>
+
+        <div class="row add-party">
+          <input id="partyManual" type="text" placeholder="Add party name..." maxlength="100" />
+          <button id="btnAddParty" type="button">Add</button>
+        </div>
+
+        <div id="partyHint" class="hint">
+          Tip: detection looks for "between ... and ...", roles like "the Company/Contractor", and org suffixes (Inc, LLC, Ltd, Holdings, Group).
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="controls">
+          <button id="btnNext" class="primary" type="button">Next</button>
+          <button id="btnReset" type="button">Reset</button>
+        </div>
+        <div id="status" class="status">Ready.</div>
+      </section>
+
+      <section class="card small">
+        <ul class="bullets">
+          <li>Highlights body text only (no headers/footers).</li>
+          <li>Matches: party name (+ 's), role aliases (e.g., Company / the Company), and pronouns (it/its or they/their).</li>
+          <li>Idempotent: re-running won't duplicate highlights.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
